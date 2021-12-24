@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CategoryServise } from './services/categoryes.service';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,11 @@ export class AppComponent implements OnInit{
     form=new FormGroup({
         email:new FormControl('',[Validators.required,Validators.min(4)]),
     })
-    constructor(){
+    constructor(private categoriesService:CategoryServise){
 
     }
   ngOnInit(): void {
-
+    this.categoriesService.fetchCategories()
   }
     onSubmit( ){
           console.log(this.form.value)

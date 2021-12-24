@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { menuArr } from '../../../helpers/header';
+import { menuArr } from '../../../../helpers/header';
 
 @Component({
   selector: 'app-menu',
