@@ -1,0 +1,26 @@
+<div class="container">
+  <nav>
+    <ul class="links-wrapper">
+      <li class="links-item links-item-1">
+        <fa-icon  [icon]="viber"></fa-icon>
+        Viber
+      </li>
+      <li class="links-item">
+        <a class="links-item links-item-2" href="tel:+375293021021">
+          <div class="A-wrapper">
+            A
+            <div class="A-icon">1</div>
+          </div>
+          +375 29 302 10 21
+        </a>
+      </li>
+      <li (click)="setShowMenu(true)" class="links-item links-item-3">More
+        <app-menu *ngIf="showMenu"></app-menu>
+      </li>
+      <li class="links-item links-item-4">
+        <fa-icon class="clock" [icon]="clock"></fa-icon>
+        contact center from 8:00 to 22:00
+      </li>
+    </ul>
+  </nav>
+</div>
