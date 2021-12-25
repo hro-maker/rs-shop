@@ -1,17 +1,38 @@
 <div class="subheader-wrapper">
-  <div class="subheader-item subheader-item_1">
-    Rs Shop
+
+  <div class="subheader-item subheader-item_2">
+
+      <a [routerLink]="['/']"  >
+        <button pButton type="button" class="p-button-raised p-button-outlined">
+        Rs Shop
+      </button>
+      </a>
+
   </div>
   <div class="subheader-item subheader-item_2">
-    <button pButton type="button" class="p-button-raised p-button-outlined">
-      Catalog
-    </button>
+     <a [routerLink]="['/categories']"  >
+      <button pButton type="button" class="p-button-raised p-button-outlined">
+        Categories
+      </button>
+    </a>
+
   </div>
   <div class="subheader-item subheader-item_3">
-    <span class="p-input-icon-left">
-      <i class="pi pi-search"></i>
-      <input type="text" pInputText  placeholder="Product search">
-  </span>
+
+     <form [formGroup]="form">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+      <input
+        formControlName="search"
+        (focus)="setShowSearchBox(true)"
+        type="text" pInputText
+       placeholder="Product search">
+    </span>
+     </form>
+
+  <app-searchbox [goods]="goods" *ngIf="showSearchBox">
+
+  </app-searchbox>
   </div>
   <div class="subheader-item subheader-item_4">
     Account

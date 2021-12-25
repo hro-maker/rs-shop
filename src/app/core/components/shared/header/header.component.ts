@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
     showMenu=false
   constructor() { }
   @HostListener('window:click', ['$event'])
-  handleKeyDown(event: KeyboardEvent) {
+  handleKeyDown(event:MouseEvent) {
     if((event.target as any).className.includes('links-item-3')){
       this.setShowMenu(true)
     }else{

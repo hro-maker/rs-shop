@@ -1,0 +1,28 @@
+.searchbox-wrapper{
+  padding: 5px;
+  background-color: #fff;
+  width: 342px;
+  position: absolute;
+  top:calc(100% + 5px);
+  left: 0;
+  border-radius: 5px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.spinner{
+  margin-left: 35%;
+}
+img{
+  width: 70px;
+  height: 70px;
+}
+li{
+  a{
+    display: flex;
+  padding: 10px;
+  gap: 20px;
+  }
+}
+p-image{
+  max-width: 200px;
+}

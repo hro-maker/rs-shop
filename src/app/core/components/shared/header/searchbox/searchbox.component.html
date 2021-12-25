@@ -1,0 +1,29 @@
+<div class="searchbox-wrapper">
+  <ng-container *ngIf="loading; else elseTemplate">
+    <p-progressSpinner  class="spinner"></p-progressSpinner>
+  </ng-container>
+  <ng-template #elseTemplate>
+        <ng-container *ngIf="goods.length > 0; else elseTemplate">
+            <ul>
+              <li class="searchbox-item" *ngFor="let good of goods">
+
+                <a target="_blank" [routerLink]="['/product/'+good.id]" >
+                  <p-image [src]="good.imageUrls[0]" [alt]="good.name" height="100"></p-image>
+                <div class="good-info">
+                  <p>
+                    {{good.name.slice(0,30)}}...
+                  </p>
+                  <span>
+                    Price: {{good.price}}
+                  </span>
+                </div>
+                </a>
+              </li>
+            </ul>
+        </ng-container>
+        <ng-template #elseTemplate>
+            goods don't found
+        </ng-template>
+
+  </ng-template>
+</div>
