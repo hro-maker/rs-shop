@@ -8,6 +8,7 @@ import {BadgeModule} from 'primeng/badge';
 import { MenuComponent } from './header/menu/menu.component';
 import { SubheaderComponent } from './header/subheader/subheader.component';
 import {ButtonModule} from 'primeng/button';
+import {CardModule} from 'primeng/card';
 import { CategoryServise } from 'src/app/services/categoryes.service';
 import { CategoriesComponent } from './header/categories/categories.component';
 import { RouterModule } from '@angular/router';
@@ -36,7 +37,8 @@ import { ProductComponent } from './product/product.component';
     ButtonModule,
     RouterModule.forChild([]),
     ProgressSpinnerModule,
-    ImageModule
+    ImageModule,
+    CardModule,
   ],
   providers:[CategoryServise,GoodServise]
 })

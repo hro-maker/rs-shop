@@ -1,5 +1,7 @@
 <ul class="categories-wrapper">
   <li *ngFor="let item of categories | async" class="category-item">
-        {{item.name}}
+        <a [routerLink]="['/categories/',item.id]"  >
+          {{item.name}}
+        </a>
   </li>
 </ul>

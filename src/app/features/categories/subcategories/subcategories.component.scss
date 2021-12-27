@@ -5,11 +5,17 @@
   width: 200px;
   background-color: #000;
 }
+a{
+  color: white;
+  text-decoration: none;
+}
 .subcategory-item{
   padding: 5px;
   border-bottom: 1px solid #fff;
   &:hover{
     background-color: #fff;
-    color: #000;
+    a{
+      color: #000;
+    }
   }
 }

@@ -13,6 +13,13 @@ export class GoodServise {
     start:-1,
   }
   constructor(private httpClient: HttpClient) { }
+  resetInfo(){
+    this.bycategoryid={
+      loading:false,
+      isFinished:false,
+      start:-1,
+    }
+  }
   fetchGoodsBySearchQuery(txt:string):Observable<Igood[]>{
     this.loading=true
        return new Observable<Igood[]>((observer)=>{
@@ -25,20 +32,28 @@ export class GoodServise {
        })
   }
   makefetchQuery(url:string){
-    this.bycategoryid.start+=1
+
+    this.bycategoryid={
+      ...this.bycategoryid,
+      start:this.bycategoryid.start+1,
+      loading:true,
+    }
       return new Observable<Igood[]>((observer)=>{
            if(!this.bycategoryid.isFinished){
             this.httpClient.get<Igood[]>(url,{
               params:params.appendAll({
-              start:this.bycategoryid.start,
-              count:10
+              start:this.bycategoryid.start * 20,
+              count:20
             })}
             ).subscribe((data)=>{
                     if(!data.length){
                           this.bycategoryid.isFinished=true
                      }
                   observer.next(data)
+                  this.bycategoryid.loading=false;
             })
+           }else{
+            this.bycategoryid.loading=false;
            }
       })
   }

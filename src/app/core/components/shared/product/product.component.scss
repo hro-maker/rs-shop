@@ -1,0 +1,33 @@
+
+img{
+  width: 70px !important;
+  overflow: hidden;
+  margin-left: 40%;
+}
+a,h2{
+  text-decoration: none;
+  text-align: center;
+  width: 200px;
+  margin: auto;
+  margin-top: 10px;
+}
+.p-card-body{
+  border:20px solid green ;
+}
+.container{
+  border: 2px solid black;
+}
+ng-template{
+  padding: 10px;
+}
+.p-card-header{
+display: none;
+}
+fa-icon{
+  font-size: 50px;
+  margin-left: 42%;
+}
+.footer,.p-card-content{
+  text-align: center;
+ margin-left: 40% !important;
+}

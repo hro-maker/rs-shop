@@ -1,1 +1,31 @@
-<p>product works!</p>
+<p-card
+ [style]="{
+  paddingTop:'20px',
+  borderStyle:'solid',
+  borderWidth:'4px',
+ borderColor:  cardBgcolor}" styleClass="p-card-shadow">
+  <ng-template pTemplate="header">
+     <div>
+       <ng-container *ngIf="product.imageUrls[0]; else placeholder">
+        <img  (error)="errorHandler($event)"  alt="Card" [src]="product.imageUrls[0]">
+       </ng-container>
+      <ng-template #placeholder>
+        <fa-icon  [icon]="placeholdericon"></fa-icon>
+      </ng-template>
+
+     </div>
+     <h2><a [routerLink]="['/product/'+product.id]"  >
+        {{product.name}}
+    </a> </h2>
+  </ng-template>
+  <ng-template  pTemplate="subheading" >
+          {{product.availableAmount ? "in stock" : "not available"}}
+          <div>
+            {{product.price}} Rub.
+          </div>
+  </ng-template>
+    <ng-template class="footer" pTemplate="footer">
+    <p-button label="Add to Cart" icon="pi pi-plus" styleClass="p-button-primary" [style]="{'margin-left': '.5em'}"></p-button>
+</ng-template>
+
+</p-card>

@@ -1,0 +1,10 @@
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 30px;
+  padding-left: 3%;
+  padding-top: 3%;
+}
+.for-intercept{
+  height: 40px;
+}

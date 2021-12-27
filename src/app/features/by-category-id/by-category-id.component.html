@@ -1,1 +1,19 @@
-<p>by-category-id works!</p>
+<div class="history">
+  <a [routerLink]="['/']" >
+    Home ></a>
+    <a  [routerLink]="['/category',id]">
+    {{id}}>
+  </a>
+    <a *ngIf="subid"  [routerLink]="['/category/'+id+'/'+subid]" >
+    {{subid}}>
+  </a>
+</div>
+<div class="wrapper">
+  <app-product
+*ngFor="let product of goods"
+[product]="product"
+>
+</app-product>
+</div>
+<p-progressSpinner *ngIf="loading"></p-progressSpinner>
+<div #intercept class="for-intercept"></div>
