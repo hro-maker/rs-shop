@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Icategory } from '../../../core/interfaces/category';
 
 @Component({
@@ -6,9 +6,13 @@ import { Icategory } from '../../../core/interfaces/category';
   templateUrl: './subcategories.component.html',
   styleUrls: ['./subcategories.component.scss']
 })
-export class SubcategoriesComponent implements OnInit {
+export class SubcategoriesComponent implements OnInit,AfterViewInit {
   @Input('categories') categories!:Icategory[]
+  @Input('categoryId') categoryId!:string
   constructor() { }
+  ngAfterViewInit(): void {
+    console.log(this.categories)
+  }
 
   ngOnInit(): void {
     console.log(this.categories)

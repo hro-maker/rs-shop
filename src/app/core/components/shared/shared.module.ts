@@ -15,15 +15,17 @@ import { GoodServise } from '../../../services/goods.service';
 import { SearchboxComponent } from './header/searchbox/searchbox.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {ImageModule} from 'primeng/image';
+import { ProductComponent } from './product/product.component';
 @NgModule({
   declarations: [
     HeaderComponent,
     MenuComponent,
     SubheaderComponent,
     CategoriesComponent,
-    SearchboxComponent
+    SearchboxComponent,
+    ProductComponent
   ],
-  exports: [HeaderComponent,SubheaderComponent,CategoriesComponent],
+  exports: [HeaderComponent,SubheaderComponent,CategoriesComponent,ProductComponent],
   imports: [
   CommonModule,
     FormsModule,

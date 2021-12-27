@@ -1,5 +1,7 @@
 <div class="subcatecory__wrapper">
-  <div *ngFor="let cat of categories" class="subcategory-item">
-    {{cat.name}}
+  <div  *ngFor="let cat of categories" class="subcategory-item">
+    <a  [routerLink]="['/categories/'+categoryId+'/'+cat.id]" routerLinkActive="router-link-active" >
+        {{cat.name}}
+    </a>
   </div>
 </div>

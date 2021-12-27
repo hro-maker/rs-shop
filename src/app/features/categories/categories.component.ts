@@ -13,6 +13,7 @@ export class CategoriesComponent implements OnInit {
   constructor(private categoryServise:CategoryServise) { }
 
   ngOnInit(): void {
+
   }
     get categories(){
         return this.categoryServise.categories

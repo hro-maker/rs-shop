@@ -13,4 +13,5 @@ export class CategoryServise {
             this.categories.next(data)
        })
   }
+
 }

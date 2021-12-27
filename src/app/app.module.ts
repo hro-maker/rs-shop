@@ -10,8 +10,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriesModule } from './features/categories/categories.module';
+import { MainComponent } from './features/main/main.component';
+import { ByCategoryIdComponent } from './features/by-category-id/by-category-id.component';
+import { BySubCategoryIdComponent } from './features/by-sub-category-id/by-sub-category-id.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MainComponent, ByCategoryIdComponent, BySubCategoryIdComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
 
     }
   ngOnInit(): void {
-    this.categoriesService.fetchCategories()
+
   }
     onSubmit( ){
           console.log(this.form.value)

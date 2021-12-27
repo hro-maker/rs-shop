@@ -1,7 +1,16 @@
-<ul  class="categories-wrapper">
-  <li  *ngFor="let category of categories | async" (mouseover)="setcategoryId(category.id)"  class="category-item">
-      {{category.name}}
-      <app-subcategories *ngIf="subcategoryId === category.id" [categories]="category.subCategories">
-      </app-subcategories>
+<ul class="categories-wrapper">
+  <li
+    *ngFor="let category of categories | async"
+    (mouseover)="setcategoryId(category.id)"
+    class="category-item"
+  >
+    <a [routerLink]="['/categories/'+category.id]" >
+      {{ category.name }}
+      <app-subcategories
+        *ngIf="subcategoryId === category.id"
+        [categories]="category.subCategories"
+        [categoryId]="category.id"
+      >
+      </app-subcategories></a>
   </li>
 </ul>
