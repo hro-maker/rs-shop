@@ -10,7 +10,7 @@
         <img  (error)="errorHandler($event)"  alt="Card" [src]="product.imageUrls[0]">
        </ng-container>
       <ng-template #placeholder>
-        <fa-icon  [icon]="placeholdericon"></fa-icon>
+        <fa-icon class="placeholder"  [icon]="placeholdericon"></fa-icon>
       </ng-template>
 
      </div>
@@ -19,9 +19,16 @@
     </a> </h2>
   </ng-template>
   <ng-template  pTemplate="subheading" >
-          {{product.availableAmount ? "in stock" : "not available"}}
+          <div class="info_wrapper">
+            <div>
+              {{product.availableAmount ? "in stock" : "not available"}}
           <div>
             {{product.price}} Rub.
+          </div>
+            </div>
+          <div>
+            <fa-icon *ngFor="let _ of starsArr" class="star" [icon]="star"></fa-icon>
+          </div>
           </div>
   </ng-template>
     <ng-template class="footer" pTemplate="footer">

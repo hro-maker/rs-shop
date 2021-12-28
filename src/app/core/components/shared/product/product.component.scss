@@ -23,11 +23,18 @@ ng-template{
 .p-card-header{
 display: none;
 }
-fa-icon{
+.placeholder{
   font-size: 50px;
   margin-left: 42%;
 }
 .footer,.p-card-content{
   text-align: center;
  margin-left: 40% !important;
+}
+.star{
+    font-size: 30px;
+}
+.info_wrapper{
+  display: flex;
+  justify-content: space-between;
 }

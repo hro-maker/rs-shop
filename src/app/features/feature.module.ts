@@ -6,16 +6,22 @@ import { SharedModule } from '../core/components/shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { RouterModule } from '@angular/router';
-
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import {GalleriaModule} from 'primeng/galleria';
+import { FormsModule } from '@angular/forms';
+import { ImageModule } from 'primeng/image';
 @NgModule({
-  declarations: [MainComponent, ByCategoryIdComponent],
+  declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent],
   imports: [
+  FormsModule,
     CommonModule,
     SharedModule,
     FontAwesomeModule,
     ProgressSpinnerModule,
     RouterModule,
+    GalleriaModule,
+    ImageModule
   ],
-  exports: [MainComponent, ByCategoryIdComponent],
+  exports: [MainComponent, ByCategoryIdComponent,ProductDetailsComponent],
 })
 export class FeatureModule {}

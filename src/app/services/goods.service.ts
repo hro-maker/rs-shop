@@ -63,4 +63,7 @@ export class GoodServise {
   fetchGoodsBySubCategoryId(id:string,subid:string){
     return  this.makefetchQuery(`${baseUrl}/goods/category/${id}/${subid}`)
   }
+  getProductById(id:string):Observable<Igood>{
+    return this.httpClient.get<Igood>(`${baseUrl}/goods/item/${id}`)
+  }
 }

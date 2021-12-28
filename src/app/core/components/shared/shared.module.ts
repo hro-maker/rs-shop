@@ -17,6 +17,7 @@ import { SearchboxComponent } from './header/searchbox/searchbox.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {ImageModule} from 'primeng/image';
 import { ProductComponent } from './product/product.component';
+import { ImageModalComponent } from './image-modal/image-modal.component';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -24,9 +25,16 @@ import { ProductComponent } from './product/product.component';
     SubheaderComponent,
     CategoriesComponent,
     SearchboxComponent,
-    ProductComponent
+    ProductComponent,
+    ImageModalComponent
   ],
-  exports: [HeaderComponent,SubheaderComponent,CategoriesComponent,ProductComponent],
+  exports: [
+    HeaderComponent,
+    SubheaderComponent,
+    CategoriesComponent,
+    ProductComponent,
+    ImageModalComponent
+  ],
   imports: [
   CommonModule,
     FormsModule,

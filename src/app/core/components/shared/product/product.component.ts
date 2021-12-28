@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { faAngular } from '@fortawesome/free-brands-svg-icons';
-import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
+import { faQuestionCircle, faStar } from '@fortawesome/free-regular-svg-icons';
 import { Igood } from 'src/app/core/interfaces/goods';
 
 @Component({
@@ -9,13 +8,15 @@ import { Igood } from 'src/app/core/interfaces/goods';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+  star=faStar
+  starsArr:number[]=[]
     @Input('product')product!:Igood
     placeholdericon=faQuestionCircle
     cardBgcolor='green'
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.product)
+   this.starsArr=Array.from({length:this.product.rating},(_,i)=>i)
     const quantity=this.product.availableAmount
       if(quantity > 4 && quantity<20){
         this.cardBgcolor='yellow'

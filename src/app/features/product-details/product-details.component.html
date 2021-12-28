@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <p-progressSpinner *ngIf="loading">
+  </p-progressSpinner>
+ <div *ngIf="product" class="product-wrapper">
+  <p-galleria [value]="product.imageUrls" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '640px'}" [numVisible]="5"
+  [circular]="true" [showItemNavigators]="true">
+  <ng-template pTemplate="item" let-item>
+    <img (error)="errorHandler($event)" (click)="onClick(item)" [src]="item" style=" display: block;cursor: pointer; min-height:400px;max-width:100%;" [alt]="item"  />
+  </ng-template>
+  <ng-template style="overflow:hidden" pTemplate="thumbnail" let-item>
+      <div class="p-grid p-nogutter p-justify-center">
+          <img (error)="errorHandler($event)" [src]="item" style="display: block;max-width:100px;overflow:hidden;max-height: 150px;" />
+      </div>
+  </ng-template>
+</p-galleria>
+ </div>
+ <app-image-modal
+ (onClick)="onClick($event)"
+ *ngIf="src.length > 0"
+ [src]="src"
+ ></app-image-modal>
+</div>
