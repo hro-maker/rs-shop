@@ -7,21 +7,23 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import {GalleriaModule} from 'primeng/galleria';
+import { GalleriaModule } from 'primeng/galleria';
 import { FormsModule } from '@angular/forms';
 import { ImageModule } from 'primeng/image';
+import { ButtonModule } from 'primeng/button';
 @NgModule({
   declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent],
   imports: [
-  FormsModule,
+    FormsModule,
     CommonModule,
     SharedModule,
     FontAwesomeModule,
     ProgressSpinnerModule,
     RouterModule,
     GalleriaModule,
-    ImageModule
+    ImageModule,
+    ButtonModule,
   ],
-  exports: [MainComponent, ByCategoryIdComponent,ProductDetailsComponent],
+  exports: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent],
 })
 export class FeatureModule {}

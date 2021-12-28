@@ -5,3 +5,48 @@ p-galleria-item{
   background-color: #000;
   height: 100vh;
 }
+.product__information{
+  color: #fff;
+
+}
+.wrapper{
+  display: flex;
+  padding: 50px;
+
+}
+.product__information {
+}
+.product__name {
+  font-size: 30px;
+}
+.product__description {
+  width: 400px;
+  font-size: 16px;
+  margin-top: 40px;
+}
+.price {
+  margin-top: 20px;
+  font-size: 20px;
+}
+.product-wrapper{
+  display: flex;
+  gap: 100px;
+}
+.star{
+  color: yellow;
+  font-size: 30px;
+}
+.rating{
+  margin: 20px;
+}
+span{
+  color: yellow;
+  font-size: 20px;
+}
+.product-info__footer{
+    margin-top: 80px;
+}
+.heart{
+  margin-left: 30px;
+  font-size: 40px;
+}

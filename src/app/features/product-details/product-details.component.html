@@ -2,7 +2,7 @@
   <p-progressSpinner *ngIf="loading">
   </p-progressSpinner>
  <div *ngIf="product" class="product-wrapper">
-  <p-galleria [value]="product.imageUrls" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '640px'}" [numVisible]="5"
+  <p-galleria [value]="product.imageUrls" [responsiveOptions]="responsiveOptions" [containerStyle]="{'width': '640px'}" [numVisible]="5"
   [circular]="true" [showItemNavigators]="true">
   <ng-template pTemplate="item" let-item>
     <img (error)="errorHandler($event)" (click)="onClick(item)" [src]="item" style=" display: block;cursor: pointer; min-height:400px;max-width:100%;" [alt]="item"  />
@@ -13,10 +13,33 @@
       </div>
   </ng-template>
 </p-galleria>
- </div>
- <app-image-modal
- (onClick)="onClick($event)"
- *ngIf="src.length > 0"
- [src]="src"
- ></app-image-modal>
+<div  *ngIf="product" class="product__information">
+  <div class="product__name">
+    {{product.name}}
+  </div>
+  <div class="product__description">
+      {{product.description}}
+  </div>
+  <div class="price">
+  Price:  {{product.price }} $
+  </div>
+  <div class="rating">
+    Rating:
+    <fa-icon *ngFor="let _ of starsArr" class="star"  [icon]="star"></fa-icon>
+    <span  *ngIf="!starsArr.length" class="non-rating">0</span>
+  </div>
+<div class="product-info__footer">
+  <button pButton type="button" label="Add to Cart" ></button>
+  <fa-icon
+  [ngStyle]="{color:product.isFavorite ? 'red' : 'white'}"
+  class="heart"  [icon]="heart"></fa-icon>
 </div>
+</div>
+ </div>
+
+</div>
+<app-image-modal
+(onClick)="onClick($event)"
+*ngIf="src.length > 0"
+[src]="src"
+></app-image-modal>
