@@ -8,6 +8,11 @@ import { ProductComponent } from './core/components/shared/product/product.compo
 import { ProductDetailsComponent } from './features/product-details/product-details.component';
 import { LoginComponent } from './features/auth/components/login/login.component';
 import { RegisterComponent } from './features/auth/components/register/register.component';
+
+import { CartComponent } from './features/cart/cart.component';
+import { OrdersComponent } from './features/orders/orders.component';
+import { AuthGuard } from './core/helpers/auth.guard';
+
 const routes: Routes = [
   {
     path: 'categories',
@@ -22,6 +27,8 @@ const routes: Routes = [
   },
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
+  {path:'cart',component:CartComponent,canActivate:[AuthGuard]},
+  {path:'orders',component:OrdersComponent,canActivate:[AuthGuard]},
   {
     path:"**",
     redirectTo:''
@@ -30,6 +37,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+exports: [RouterModule],
 })
 export class AppRoutingModule {}

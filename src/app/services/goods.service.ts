@@ -66,4 +66,20 @@ export class GoodServise {
   getProductById(id:string):Observable<Igood>{
     return this.httpClient.get<Igood>(`${baseUrl}/goods/item/${id}`)
   }
+  addTocart(id:string){
+  return this.httpClient.post(`${baseUrl}/users/cart`,{id})
+  }
+  deleteFromCart(id:string){
+  return this.httpClient.delete(`${baseUrl}/users/cart`,{
+    params:params.append('id',id)
+  })
+  }
+  addFavorites(id:string){
+    return this.httpClient.post(`${baseUrl}/users/favorites`,{id})
+  }
+  deleteFavorites(id:string){
+    return this.httpClient.delete(`${baseUrl}/users/favorites`,{
+      params:params.append('id',id)
+    })
+  }
 }

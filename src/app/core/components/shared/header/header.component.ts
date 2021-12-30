@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 
 import { faViber } from '@fortawesome/free-brands-svg-icons';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategoryServise } from '../../../../services/categoryes.service';
 
 @Component({
@@ -13,10 +14,10 @@ export class HeaderComponent implements OnInit {
     viber =faViber
     clock=faClock
     showMenu=false
-  constructor(private categoriesService:CategoryServise) { }
+  constructor(private categoriesService:CategoryServise,private authService: AuthService) { }
   @HostListener('window:click', ['$event'])
   handleKeyDown(event:MouseEvent) {
-    if((event.target as any).className.includes('links-item-3')){
+    if((event.target as any).className?.includes?.('links-item-3')){
       this.setShowMenu(true)
     }else{
       this.setShowMenu(false)

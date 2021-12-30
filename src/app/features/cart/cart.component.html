@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <div *ngFor="let product of products">
+
+    <div class="item">
+      <div class="item-image">
+        <p-image [preview]="true" (error)="errorHandler($event)" [src]="product.imageUrls[0]" alt="Image" height="100">
+          <ng-template pTemplate="indicator">
+              Indicator Content
+          </ng-template>
+      </p-image>
+      </div>
+      <div class="item-info">
+              <div class="item-name">
+                <a  [routerLink]="['/product/'+product.id]">
+                  {{product.name}}
+                </a>
+              </div>
+              <div class="item-descr">
+                {{product.description.slice(0,100)}}
+              </div>
+              <div class="item-price">
+                {{product.price | currency:"USD"}}
+              </div>
+      </div>
+      <div class="item-amount">
+        <p-inputNumber
+    [showButtons]="true"
+    [max]="product.availableAmount"
+    (onInput)="changeEvent($event,product.id)"
+    [min]="0"
+  decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" ></p-inputNumber>
+      </div>
+      <div (click)="deleteFromCart(product.id)" class="icon">
+        <fa-icon class="clock" [icon]="trashIcon"></fa-icon>
+      </div>
+         </div>
+
+</div>
+
+</div>

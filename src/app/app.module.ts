@@ -13,10 +13,15 @@ import { CategoriesModule } from './features/categories/categories.module';
 import { FeatureModule } from './features/feature.module';
 import { HttpIntercept } from './core/helpers/token.interceptor';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './core/helpers/auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-  BrowserModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ButtonModule,
     SharedModule,
@@ -26,12 +31,14 @@ import { AuthService } from './services/auth.service';
     FontAwesomeModule,
     HttpClientModule,
     CategoriesModule,
-
+    ToastModule
   ],
   providers: [
+    MessageService,
+    AuthGuard,
     AuthService,
     CategoryServise,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpIntercept, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpIntercept, multi: true },
   ],
   bootstrap: [AppComponent],
 })

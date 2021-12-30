@@ -1,4 +1,5 @@
 <div class="wrapper">
+
   <p-progressSpinner *ngIf="loading">
   </p-progressSpinner>
  <div *ngIf="product" class="product-wrapper">
@@ -21,7 +22,7 @@
       {{product.description}}
   </div>
   <div class="price">
-  Price:  {{product.price }} $
+  Price:  {{product.price | currency:"USD"}}
   </div>
   <div class="rating">
     Rating:
@@ -29,8 +30,9 @@
     <span  *ngIf="!starsArr.length" class="non-rating">0</span>
   </div>
 <div class="product-info__footer">
-  <button pButton type="button" label="Add to Cart" ></button>
+  <button  (click)="addToCart(product.id,product.isInCart)" pButton type="button" label="Add to Cart" ></button>
   <fa-icon
+  (click)="addFavorite(product.id,product.isFavorite)"
   [ngStyle]="{color:product.isFavorite ? 'red' : 'white'}"
   class="heart"  [icon]="heart"></fa-icon>
 </div>

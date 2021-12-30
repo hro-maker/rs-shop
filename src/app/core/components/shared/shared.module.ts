@@ -19,6 +19,8 @@ import {ImageModule} from 'primeng/image';
 import { ProductComponent } from './product/product.component';
 import { ImageModalComponent } from './image-modal/image-modal.component';
 import { AccountButtonsComponent } from './header/account-buttons/account-buttons.component';
+
+
 @NgModule({
   declarations: [
     HeaderComponent,

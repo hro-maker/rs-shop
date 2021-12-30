@@ -15,10 +15,14 @@ import { AuthModule } from './auth/auth.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { CartComponent } from './cart/cart.component';
+import { OrdersComponent } from './orders/orders.component';
+import { CartService } from '../services/cart.service';
+import {InputNumberModule} from 'primeng/inputnumber';
 @NgModule({
-  declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent],
+  declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent, CartComponent, OrdersComponent],
   imports: [
-  FormsModule,
+FormsModule,
     HttpClientModule,
     CommonModule,
     SharedModule,
@@ -29,9 +33,10 @@ import { AuthService } from '../services/auth.service';
     ImageModule,
     ButtonModule,
     ReactiveFormsModule,
-    AuthModule
+    AuthModule,
+    InputNumberModule
   ],
-  providers:[AuthService],
-  exports: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],
+  providers:[AuthService,CartService],
+  exports: [CartComponent, OrdersComponent,MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],
 })
 export class FeatureModule {}

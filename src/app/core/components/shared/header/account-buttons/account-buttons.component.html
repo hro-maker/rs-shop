@@ -7,11 +7,11 @@
         <fa-icon class="logout"  [icon]="signOut"></fa-icon>
         Log out
       </div>
-      <div  class="buttons-item for-click">
+      <div [routerLink]="['/cart']" class="buttons-item for-click">
         <fa-icon class="cart"  [icon]="cart"></fa-icon>
        Cart
       </div>
-      <div [routerLink]="['/cart']"  class="buttons-item for-click">
+      <div [routerLink]="['/orders']"  class="buttons-item for-click">
         <fa-icon class="bars"  [icon]="bars"></fa-icon>
        orders
       </div>

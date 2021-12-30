@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Validator } from 'src/app/core/helpers/Validator';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBase } from '../../../../core/FormBase';
@@ -18,7 +19,8 @@ export class LoginComponent extends FormBase implements OnInit {
   error=''
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService,
   ) {
     super()
    }
@@ -29,16 +31,12 @@ export class LoginComponent extends FormBase implements OnInit {
   }
   get controls(){return this.form.controls}
   override FormValidated(){
-    console.log(this.form.value)
       this.authService.login(this.form.value).subscribe((data) => {
             this.authService.setToken(data.token)
             this.authService.getuserInfo()
             this.router.navigate(['/']);
       },(err)=>{
-        this.error = err.message
-        setTimeout(() => {
-          this.error=''
-        })
+        this.messageService.add({severity:'error', summary:'login', detail:`error ${err.statusText}`});
       })
   }
 }
