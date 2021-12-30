@@ -35,6 +35,7 @@ export class RegisterComponent extends FormBase implements OnInit {
       this.authService.register(this.form.value).subscribe((data) => {
         console.log(data)
             this.authService.setToken(data.token)
+            this.authService.getuserInfo()
             this.router.navigate(['/']);
       },(err)=>{
         this.error = err.message

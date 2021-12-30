@@ -12,6 +12,7 @@ import { GoodServise } from '../../../../../services/goods.service';
 })
 export class SubheaderComponent implements OnInit,AfterViewInit {
     showSearchBox=false
+    showAccountbuttons=false
     goods:Igood[]=[]
     form= new FormGroup({
       search:new FormControl('')
@@ -51,6 +52,13 @@ export class SubheaderComponent implements OnInit,AfterViewInit {
         && !(event.target as any).className.includes('p-inputtext')
       ){
         this.setShowSearchBox(false)
+      }
+      if((event.target as any).className.includes('subheader-item_4')
+        || (event.target as any).className.includes('for-click')
+      ){
+        this.showAccountbuttons=true
+      }else{
+        this.showAccountbuttons=false
       }
     }
 }

@@ -1,17 +1,17 @@
-<div class="buttons-wrapper">
+<div *ngIf="showAccountbuttons" class="buttons-wrapper">
   <ng-container *ngIf="userInfo; else elseTemplate">
-      <div class="userName">
+      <div class="userName for-click">
         {{userInfo.firstName}} {{userInfo.lastName}}
       </div>
-      <div (click)="logOut()" class="buttons-item">
+      <div (click)="logOut()" class="buttons-item for-click">
         <fa-icon class="logout"  [icon]="signOut"></fa-icon>
         Log out
       </div>
-      <div  class="buttons-item">
+      <div  class="buttons-item for-click">
         <fa-icon class="cart"  [icon]="cart"></fa-icon>
        Cart
       </div>
-      <div [routerLink]="['/cart']"  class="buttons-item">
+      <div [routerLink]="['/cart']"  class="buttons-item for-click">
         <fa-icon class="bars"  [icon]="bars"></fa-icon>
        orders
       </div>

@@ -33,7 +33,9 @@
           </div>
   </ng-template>
     <ng-template class="footer" pTemplate="footer">
-    <p-button label="Add to Cart" icon="pi pi-plus" styleClass="p-button-primary" [style]="{'margin-left': '.5em'}"></p-button>
+    <p-button
+      (click)="addToCart(product.id)"
+    label="Add to Cart" icon="pi pi-plus" styleClass="p-button-primary" [style]="{'margin-left': '.5em'}"></p-button>
 </ng-template>
 
 </p-card>

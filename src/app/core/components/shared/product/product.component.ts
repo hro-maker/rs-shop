@@ -29,4 +29,7 @@ export class ProductComponent implements OnInit {
     console.debug(event);
     event.target.src = "https://cdn.browshot.com/static/images/not-found.png";
  }
+ addToCart(id:string){
+    console.log(id)
+ }
 }
