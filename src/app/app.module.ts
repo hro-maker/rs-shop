@@ -8,13 +8,15 @@ import { ButtonModule } from 'primeng/button';
 import { SharedModule } from './core/components/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CategoriesModule } from './features/categories/categories.module';
 import { FeatureModule } from './features/feature.module';
+import { HttpIntercept } from './core/helpers/token.interceptor';
+import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     ButtonModule,
     SharedModule,
@@ -26,7 +28,11 @@ import { FeatureModule } from './features/feature.module';
     CategoriesModule,
 
   ],
-  providers: [CategoryServise],
+  providers: [
+    AuthService,
+    CategoryServise,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpIntercept, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

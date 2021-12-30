@@ -6,25 +6,30 @@ import { MainComponent } from './features/main/main.component';
 import { ByCategoryIdComponent } from './features/by-category-id/by-category-id.component';
 import { ProductComponent } from './core/components/shared/product/product.component';
 import { ProductDetailsComponent } from './features/product-details/product-details.component';
+import { LoginComponent } from './features/auth/components/login/login.component';
+import { RegisterComponent } from './features/auth/components/register/register.component';
 const routes: Routes = [
-      {
-        path: 'categories',
-        component:CategoriesComponent,
-
-      },
-      {path:'categories/:id',component:ByCategoryIdComponent},
-      {path:'categories/:id/:subid',component:ByCategoryIdComponent},
-        {path:'',
-        component:MainComponent
-        },
-      {
-        path:'product/:id',
-        component:ProductDetailsComponent
-    }
+  {
+    path: 'categories',
+    component: CategoriesComponent,
+  },
+  { path: 'categories/:id', component: ByCategoryIdComponent },
+  { path: 'categories/:id/:subid', component: ByCategoryIdComponent },
+  { path: '', component: MainComponent },
+  {
+    path: 'product/:id',
+    component: ProductDetailsComponent,
+  },
+  {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
+  {
+    path:"**",
+    redirectTo:''
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from './services/auth.service';
 import { CategoryServise } from './services/categoryes.service';
 
 @Component({
@@ -8,20 +9,12 @@ import { CategoryServise } from './services/categoryes.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-
-    form=new FormGroup({
-        email:new FormControl('',[Validators.required,Validators.min(4)]),
-    })
-    constructor(private categoriesService:CategoryServise){
-
+    constructor(
+      private authService: AuthService
+      ){
     }
   ngOnInit(): void {
-
+      this.authService.getuserInfo()
   }
-    onSubmit( ){
-          console.log(this.form.value)
-    }
-    get email(){
-      return this.form.get('email') as any
-    }
+
 }

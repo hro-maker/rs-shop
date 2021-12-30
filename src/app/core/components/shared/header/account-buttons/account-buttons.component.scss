@@ -1,0 +1,33 @@
+.buttons-wrapper{
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 200px;
+  min-height: 100px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 2px 2px 2px black;
+  border-radius: 5px;
+  cursor:auto;
+  button{
+    width: 140px;
+    margin-top: 10px;
+  }
+}
+.userName{
+  font-size: 25px;
+}
+.buttons-item{
+  margin-top: 5px;
+  font-size: 20px;
+  padding: 4px;
+  cursor: pointer;
+
+  &:hover{
+    background-color: #000;
+    color: white;
+    padding-left: 25px;
+  }
+}

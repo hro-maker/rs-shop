@@ -1,0 +1,50 @@
+<div class="login__wrapper" >
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+   <div class="df">
+    <div>
+      <div class="input-group">
+        <span class="p-float-label">
+          <input formControlName="firstName" id="float-input_3" type="firstName" name="email" pInputText>
+          <label for="float-input_3">First name</label>
+      </span>
+      <small  *ngIf="controls['firstName'].touched && controls['firstName'].hasError('min')">
+        firstName  is incorrect
+      </small>
+      </div>
+      <div class="input-group">
+        <span class="p-float-label">
+          <input formControlName="lastName" id="float-input" type="lastName" name="email" pInputText>
+          <label for="float-input">lastName</label>
+      </span>
+      <small  *ngIf="controls['lastName'].touched && controls['lastName'].hasError('min')">
+        lastName  is incorrect
+      </small>
+      </div>
+    </div>
+    <div>
+      <div class="input-group">
+        <span class="p-float-label">
+          <input formControlName="login" id="float-input_2" type="login" name="email" pInputText>
+          <label for="float-input_2">Login</label>
+      </span>
+      <small  *ngIf="controls['login'].touched && controls['login'].hasError('min')">
+        login  is incorrect
+      </small>
+      </div>
+      <div class="input-group">
+        <span class="p-float-label">
+          <input autocomplete="new-password" formControlName="password" id="float-input_1" type="password" name="email" pInputText>
+          <label for="float-input_1">password</label>
+      </span>
+      <small  *ngIf="controls['password'].touched && controls['password'].hasError('min')">
+        password  is incorrect
+      </small>
+      </div>
+    </div>
+   </div>
+    <button [disabled]="!form.valid" pButton type="submit" label="Sign up" ></button>
+  </form>
+  <button [routerLink]="['/login']" pButton type="button" label="login" class="p-button-outlined"></button>
+
+  </div>

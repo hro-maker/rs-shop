@@ -11,11 +11,9 @@ export class SubcategoriesComponent implements OnInit,AfterViewInit {
   @Input('categoryId') categoryId!:string
   constructor() { }
   ngAfterViewInit(): void {
-    console.log(this.categories)
   }
 
   ngOnInit(): void {
-    console.log(this.categories)
   }
 
 }

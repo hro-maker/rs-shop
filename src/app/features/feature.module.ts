@@ -8,13 +8,18 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { GalleriaModule } from 'primeng/galleria';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageModule } from 'primeng/image';
 import { ButtonModule } from 'primeng/button';
+import { AuthModule } from './auth/auth.module';
+
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
 @NgModule({
   declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent],
   imports: [
-    FormsModule,
+  FormsModule,
+    HttpClientModule,
     CommonModule,
     SharedModule,
     FontAwesomeModule,
@@ -23,7 +28,10 @@ import { ButtonModule } from 'primeng/button';
     GalleriaModule,
     ImageModule,
     ButtonModule,
+    ReactiveFormsModule,
+    AuthModule
   ],
-  exports: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent],
+  providers:[AuthService],
+  exports: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],
 })
 export class FeatureModule {}
