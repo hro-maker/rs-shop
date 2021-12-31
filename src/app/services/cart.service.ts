@@ -34,6 +34,13 @@ export class CartService {
      map(el=>({...el,amount:1}))
    )
   }
+  getproductsInfavorites(ids:string[]){
+    return from(ids).pipe(
+      mergeMap(data=>{
+           return this.productService.getProductById(data)
+      })
+    )
+   }
   makeOrder(data:data){
       return this.httpClient.post(`${baseUrl}/users/order`,data)
   }

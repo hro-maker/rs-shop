@@ -24,8 +24,9 @@ import {CalendarModule} from 'primeng/calendar';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { FavoritesComponent } from './favorites/favorites.component';
 @NgModule({
-  declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent, CartComponent, OrdersComponent],
+  declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent, CartComponent, OrdersComponent, FavoritesComponent],
   imports: [
     FormsModule,
     HttpClientModule,
@@ -44,6 +45,6 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 
   ],
   providers:[AuthService,CartService],
-  exports: [CartComponent, OrdersComponent,MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],
+  exports: [FavoritesComponent,CartComponent, OrdersComponent,MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],
 })
 export class FeatureModule {}

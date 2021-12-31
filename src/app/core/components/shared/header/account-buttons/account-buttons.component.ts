@@ -4,6 +4,7 @@ import { Iuser } from 'src/app/core/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-account-buttons',
@@ -16,6 +17,7 @@ export class AccountButtonsComponent implements OnInit {
     signOut=faSignOutAlt
     cart=faShoppingCart
     bars=faBars
+    heart=faHeart
   constructor(
     private authService: AuthService,
     private router: Router

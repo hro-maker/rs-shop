@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <ng-container *ngIf="products.length; else elseTemplate">
+    <div *ngFor="let product of products">
+
+      <div class="item">
+        <div class="item-image">
+          <p-image [preview]="true"  [src]="product.imageUrls[0]" alt="Image" height="100">
+            <ng-template pTemplate="indicator">
+                Indicator Content
+            </ng-template>
+        </p-image>
+        </div>
+        <div class="item-info">
+                <div class="item-name">
+                  <a  [routerLink]="['/product/'+product.id]">
+                    {{product.name}}
+                  </a>
+                </div>
+                <div class="item-descr">
+                  {{product.description.slice(0,100)}}
+                </div>
+                <div class="item-price">
+                  {{product.price | currency:"USD"}}
+                </div>
+        </div>
+        <div class="item-amount">
+          <fa-icon
+          (click)="addFavorite(product.id)"
+          [ngStyle]="{color:'red'}"
+          class="heart"  [icon]="heart"></fa-icon>
+        </div>
+           </div>
+
+  </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    Favorite products don't found
+  </ng-template>
+
+</div>

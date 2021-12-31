@@ -15,6 +15,10 @@
         <fa-icon class="bars"  [icon]="bars"></fa-icon>
        orders
       </div>
+      <div [routerLink]="['/favorites']"  class="buttons-item for-click">
+        <fa-icon class="bars"  [icon]="heart"></fa-icon>
+       favorites
+      </div>
   </ng-container>
   <ng-template #elseTemplate>
     <button [routerLink]="['/login']" pButton type="button" class="p-button-secondary p-button-rounded">

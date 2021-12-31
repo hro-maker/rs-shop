@@ -12,6 +12,7 @@ import { RegisterComponent } from './features/auth/components/register/register.
 import { CartComponent } from './features/cart/cart.component';
 import { OrdersComponent } from './features/orders/orders.component';
 import { AuthGuard } from './core/helpers/auth.guard';
+import { FavoritesComponent } from './features/favorites/favorites.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'cart',component:CartComponent,canActivate:[AuthGuard]},
+  {path:'favorites',component:FavoritesComponent,canActivate:[AuthGuard]},
   {path:'orders',component:OrdersComponent,canActivate:[AuthGuard]},
   {
     path:"**",
