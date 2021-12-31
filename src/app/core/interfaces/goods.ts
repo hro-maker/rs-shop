@@ -9,5 +9,6 @@ export interface Igood{
    isInCart: boolean,
   isFavorite: boolean,
   category: string,
-  subCategory: string
+  subCategory: string,
+  amount: number
 }

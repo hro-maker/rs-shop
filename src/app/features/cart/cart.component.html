@@ -1,40 +1,84 @@
 <div class="wrapper">
-  <div *ngFor="let product of products">
+  <ng-container *ngIf="products.length; else elseTemplate">
+    <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+    <div class="cart-elements" *ngIf="activeIndex === 1">
+      <div *ngFor="let product of products">
 
-    <div class="item">
-      <div class="item-image">
-        <p-image [preview]="true" (error)="errorHandler($event)" [src]="product.imageUrls[0]" alt="Image" height="100">
-          <ng-template pTemplate="indicator">
-              Indicator Content
-          </ng-template>
-      </p-image>
-      </div>
-      <div class="item-info">
-              <div class="item-name">
-                <a  [routerLink]="['/product/'+product.id]">
-                  {{product.name}}
-                </a>
-              </div>
-              <div class="item-descr">
-                {{product.description.slice(0,100)}}
-              </div>
-              <div class="item-price">
-                {{product.price | currency:"USD"}}
-              </div>
-      </div>
-      <div class="item-amount">
-        <p-inputNumber
-    [showButtons]="true"
-    [max]="product.availableAmount"
-    (onInput)="changeEvent($event,product.id)"
-    [min]="0"
-  decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" ></p-inputNumber>
-      </div>
-      <div (click)="deleteFromCart(product.id)" class="icon">
-        <fa-icon class="clock" [icon]="trashIcon"></fa-icon>
-      </div>
-         </div>
+        <div class="item">
+          <div class="item-image">
+            <p-image [preview]="true" (error)="errorHandler($event)" [src]="product.imageUrls[0]" alt="Image" height="100">
+              <ng-template pTemplate="indicator">
+                  Indicator Content
+              </ng-template>
+          </p-image>
+          </div>
+          <div class="item-info">
+                  <div class="item-name">
+                    <a  [routerLink]="['/product/'+product.id]">
+                      {{product.name}}
+                    </a>
+                  </div>
+                  <div class="item-descr">
+                    {{product.description.slice(0,100)}}
+                  </div>
+                  <div class="item-price">
+                    {{product.price | currency:"USD"}}
+                  </div>
+          </div>
+          <div class="item-amount">
+            <p-inputNumber
+        [showButtons]="true"
+        [max]="product.availableAmount"
+        [min]="0"
+              [(ngModel)]="product.amount"
+      decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" ></p-inputNumber>
+          </div>
+          <div (click)="deleteFromCart(product.id)" class="icon">
+            <fa-icon class="clock" [icon]="trashIcon"></fa-icon>
+          </div>
+             </div>
 
-</div>
+    </div>
+    </div>
+    <div class="secont" *ngIf="activeIndex === 2">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div class="form-groups-wrapper">
+          <div class="form-group formg-group_1">
+            <span class="p-float-label">
+              <input formControlName="name" id="float-input" type="text" pInputText>
+              <label for="float-input">Username</label>
+          </span>
+          <span class="p-float-label">
+            <input formControlName="address" id="float-input2" type="text" pInputText>
+            <label for="float-input2">Address</label>
+        </span>
+          </div>
+          <div class="form-group formg-group_2">
+            <span class="p-float-label">
+              <p-inputMask id="float-input1" formControlName="phone" mask="999-99-99-99"></p-inputMask>
+              <label for="float-input1">Phone</label>
+          </span>
+            <span class="p-float-label">
+              <p-calendar id="float-input4" formControlName="timeToDeliver"></p-calendar>
+               <label for="float-input4">Time for Delivery</label>
+          </span>
+          </div>
+        </div>
+
+          <span class="p-float-label">
+            <textarea [rows]="5" [cols]="60" id="float-input5" formControlName="comment"  pInputTextarea></textarea>
+             <label for="float-input5">Comment</label>
+        </span>
+        <button [disabled]="!form.valid"  pButton type="submit" label="Create order" ></button>
+
+        </form>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+  <div class="empty">
+    Cart is empty !
+  </div>
+  </ng-template>
+
 
 </div>

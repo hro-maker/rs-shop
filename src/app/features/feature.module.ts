@@ -19,10 +19,15 @@ import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CartService } from '../services/cart.service';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { StepsModule } from 'primeng/steps';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextModule} from 'primeng/inputtext';
+import {InputMaskModule} from 'primeng/inputmask';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 @NgModule({
   declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent, CartComponent, OrdersComponent],
   imports: [
-FormsModule,
+    FormsModule,
     HttpClientModule,
     CommonModule,
     SharedModule,
@@ -34,7 +39,11 @@ FormsModule,
     ButtonModule,
     ReactiveFormsModule,
     AuthModule,
-    InputNumberModule
+    InputNumberModule,
+    StepsModule,
+    CalendarModule,
+    InputTextModule,
+    InputMaskModule
   ],
   providers:[AuthService,CartService],
   exports: [CartComponent, OrdersComponent,MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],
