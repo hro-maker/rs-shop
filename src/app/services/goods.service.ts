@@ -82,4 +82,7 @@ export class GoodServise {
       params:params.append('id',id)
     })
   }
+  getAllProducts(){
+    return this.httpClient.get<Igood[]>(`${baseUrl}/goods`)
+  }
 }

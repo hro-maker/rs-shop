@@ -25,6 +25,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { FavoritesComponent } from './favorites/favorites.component';
+import {CarouselModule} from 'primeng/carousel';
 @NgModule({
   declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent, CartComponent, OrdersComponent, FavoritesComponent],
   imports: [
@@ -42,7 +43,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
     AuthModule,
     InputNumberModule,
     StepsModule,
-
+    CarouselModule
   ],
   providers:[AuthService,CartService],
   exports: [FavoritesComponent,CartComponent, OrdersComponent,MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],

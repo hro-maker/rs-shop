@@ -32,6 +32,7 @@
 <div class="product-info__footer">
   <button  (click)="addToCart(product.id,product.isInCart)" pButton type="button" label="Add to Cart" ></button>
   <fa-icon
+  [pTooltip]="product.isFavorite ? 'remove from favorites':'add to favorites'" tooltipPosition="top"
   (click)="addFavorite(product.id,product.isFavorite)"
   [ngStyle]="{color:product.isFavorite ? 'red' : 'white'}"
   class="heart"  [icon]="heart"></fa-icon>

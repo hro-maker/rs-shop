@@ -1,1 +1,36 @@
-<p>main works!</p>
+time <select (change)="onchanege($event)" name="interval" id="interval">
+  <option value="500" label="0.5 second"></option>
+  <option value="1000" label="1 second"></option>
+  <option value="2000" label="2 seconds"></option>
+  <option value="3000" selected label="3 seconds"></option>
+  <option value="4000" label="4 seconds"></option>
+</select>
+<p-carousel
+[autoplayInterval]="playInterval"
+[value]="products" [numVisible]="1" [numScroll]="1" [circular]="false" >
+  <ng-template pTemplate="header">
+      <h5>products</h5>
+  </ng-template>
+  <ng-template let-product pTemplate="item">
+      <div class="product-item">
+          <div class="product-item-content">
+              <div class="image-container p-mb-3">
+                <p-image [src]="product.imageUrls[0]" alt="Image"  height="350">
+                  <ng-template pTemplate="indicator">
+                      Indicator Content
+                  </ng-template>
+              </p-image>
+              </div>
+              <div class="other-information">
+                 <div>
+                 <h1>Hurry up to Buy</h1>
+                 </div>
+                 <a [routerLink]="['/product/'+product.id]" class="p-mb-1">{{product.name}}</a>
+                  <div class="car-buttons p-mt-5">
+                    <h6 class="p-mt-0 p-mb-3">Price: {{product.price | currency:"USD"}}</h6>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+</p-carousel>

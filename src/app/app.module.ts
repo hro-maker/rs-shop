@@ -17,6 +17,7 @@ import { AuthGuard } from './core/helpers/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import {TooltipModule} from 'primeng/tooltip';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -31,7 +32,8 @@ import { MessageService } from 'primeng/api';
     FontAwesomeModule,
     HttpClientModule,
     CategoriesModule,
-    ToastModule
+    ToastModule,
+    TooltipModule
   ],
   providers: [
     MessageService,

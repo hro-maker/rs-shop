@@ -33,7 +33,7 @@
               [(ngModel)]="product.amount"
       decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" ></p-inputNumber>
           </div>
-          <div (click)="deleteFromCart(product.id)" class="icon">
+          <div  pTooltip="remove from cart" tooltipPosition="top"  (click)="deleteFromCart(product.id)" class="icon">
             <fa-icon class="clock" [icon]="trashIcon"></fa-icon>
           </div>
              </div>

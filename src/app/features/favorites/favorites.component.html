@@ -23,7 +23,7 @@
                   {{product.price | currency:"USD"}}
                 </div>
         </div>
-        <div class="item-amount">
+        <div pTooltip="remove from favorites" tooltipPosition="top"  class="item-amount">
           <fa-icon
           (click)="addFavorite(product.id)"
           [ngStyle]="{color:'red'}"
