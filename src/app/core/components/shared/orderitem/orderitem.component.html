@@ -1,0 +1,31 @@
+<form (ngSubmit)="onsubmit()" [formGroup]="form">
+  <div class="form-groups-wrapper">
+    <div class="form-group formg-group_1">
+      <span class="p-float-label">
+        <input formControlName="name" id="float-input" type="text" pInputText>
+        <label for="float-input">Username</label>
+    </span>
+    <span class="p-float-label">
+      <input formControlName="address" id="float-input2" type="text" pInputText>
+      <label for="float-input2">Address</label>
+  </span>
+    </div>
+    <div class="form-group formg-group_2">
+      <span class="p-float-label">
+        <p-inputMask id="float-input1" formControlName="phone" mask="999-99-99-99"></p-inputMask>
+        <label for="float-input1">Phone</label>
+    </span>
+      <span class="p-float-label">
+        <p-calendar id="float-input4" formControlName="timeToDeliver"></p-calendar>
+         <label for="float-input4">Date for Delivery</label>
+    </span>
+    </div>
+  </div>
+
+    <span class="p-float-label">
+      <textarea  [rows]="5" [cols]="60" id="float-input5" formControlName="comment"  pInputTextarea></textarea>
+       <label for="float-input5">Comment</label>
+  </span>
+  <button [disabled]="!form.valid"  pButton type="submit" [label]="btnLabel" ></button>
+
+  </form>

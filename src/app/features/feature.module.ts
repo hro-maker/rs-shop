@@ -41,9 +41,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     AuthModule,
     InputNumberModule,
     StepsModule,
-    CalendarModule,
-    InputTextModule,
-    InputMaskModule
+
   ],
   providers:[AuthService,CartService],
   exports: [CartComponent, OrdersComponent,MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],

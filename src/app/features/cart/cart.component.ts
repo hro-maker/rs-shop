@@ -19,13 +19,7 @@ export class CartComponent extends FormBase implements OnInit {
   items:any[]=[]
   trashIcon= faTrash
   activeIndex: number = 1;
-  form: FormGroup=new FormGroup({
-    "name": new FormControl('',[Validator.required,Validator.minLength(4)]),
-    "address": new FormControl('',[Validator.required,Validator.minLength(4)]),
-    "phone":new FormControl(0,[Validator.required,Validator.minLength(8)]),
-    "timeToDeliver": new FormControl(new Date()),
-    "comment":new FormControl('')
-  })
+
   constructor(
     private cartService: CartService,
     private authService:AuthService,
@@ -62,14 +56,14 @@ export class CartComponent extends FormBase implements OnInit {
   errorHandler(event:any) {
     event.target.src = "https://cdn.browshot.com/static/images/not-found.png";
  }
-  onSubmit(){
+  onSubmit(value:any){
     const result=this.products.filter(el=>el.amount > 0).map(elem=>({
       id:elem.id,
-      amount:elem.amount
+      amount:elem.amount <= elem.availableAmount ? elem.amount : elem.availableAmount
     }))
     const order={
       items:result,
-      details:this.form.value
+      details:value
     }
     this.cartService.makeOrder(order).subscribe(result=>{
       this.products=[]

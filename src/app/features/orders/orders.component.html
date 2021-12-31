@@ -1,1 +1,22 @@
-<p>orders works!</p>
+<div class="orders-wrapper">
+<ng-container *ngIf="orders.length; else elseTemplate">
+  <div *ngFor="let order of orders" class="order-item">
+    <app-orderitem (onSubmit)="onSubmit($event,order.id)"  [btnLabel]="'edit order'" [initialValues]="order.details">
+    </app-orderitem>
+  <div class="order-footer">
+    <div class="more-info">
+      ordered products quantity  {{order.items.length}}
+     </div>
+     <div  class="delete">
+      <fa-icon (click)="deleteItem(order.id)" [icon]="trash"></fa-icon>
+     </div>
+  </div>
+</div>
+</ng-container>
+<ng-template #elseTemplate>
+      <div class="dont-found">
+      Orders don't found
+      </div>
+</ng-template>
+
+</div>

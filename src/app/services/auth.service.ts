@@ -17,6 +17,7 @@ export class AuthService {
   getuserInfo():void{
     this.httpClient.get<Iuser>(`${baseUrl}/users/userInfo`).subscribe(data=>{
           this.userInfo.next(data)
+          console.log(data)
     })
   }
   login(userData:loginInfo):Observable<{token:string}>  {

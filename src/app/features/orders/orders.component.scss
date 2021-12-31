@@ -1,0 +1,30 @@
+.orders-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+.order-item {
+  margin-top: 40px;
+  border: 2px solid black;
+  padding: 40px;
+}
+.more-info{
+  font-size: 20px;
+  margin-top: 20px;
+}
+.order-footer{
+  display: flex;
+  width: 100%;
+}
+.more-info{
+  flex-grow: 1;
+}
+.delete{
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.dont-found{
+  font-size: 20px;
+}

@@ -19,6 +19,9 @@ import {ImageModule} from 'primeng/image';
 import { ProductComponent } from './product/product.component';
 import { ImageModalComponent } from './image-modal/image-modal.component';
 import { AccountButtonsComponent } from './header/account-buttons/account-buttons.component';
+import { OrderitemComponent } from './orderitem/orderitem.component';
+import { CalendarModule } from 'primeng/calendar';
+import { InputMaskModule } from 'primeng/inputmask';
 
 
 @NgModule({
@@ -30,14 +33,16 @@ import { AccountButtonsComponent } from './header/account-buttons/account-button
     SearchboxComponent,
     ProductComponent,
     ImageModalComponent,
-    AccountButtonsComponent
+    AccountButtonsComponent,
+    OrderitemComponent
   ],
   exports: [
     HeaderComponent,
     SubheaderComponent,
     CategoriesComponent,
     ProductComponent,
-    ImageModalComponent
+    ImageModalComponent,
+    OrderitemComponent
   ],
   imports: [
   CommonModule,
@@ -51,6 +56,9 @@ import { AccountButtonsComponent } from './header/account-buttons/account-button
     ProgressSpinnerModule,
     ImageModule,
     CardModule,
+    CalendarModule,
+    InputTextModule,
+    InputMaskModule
   ],
   providers:[CategoryServise,GoodServise]
 })

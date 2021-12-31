@@ -1,20 +1,20 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, map, mergeMap, Observable } from 'rxjs';
 import { baseUrl } from '../core/constants/url';
+import { details } from '../core/interfaces/user';
 import { GoodServise } from './goods.service';
+const params=new HttpParams({})
 interface data{
   "items": {
     "id": string,
     "amount": number
   }[],
-  "details": {
-    "name":string,
-    "address": string,
-    "phone": string,
-    "timeToDeliver": string,
-    "comment":string
-  }
+  "details": details
+}
+interface editOrder{
+  id:string,
+  details:details
 }
 @Injectable({
   providedIn: 'root'
@@ -36,5 +36,13 @@ export class CartService {
   }
   makeOrder(data:data){
       return this.httpClient.post(`${baseUrl}/users/order`,data)
+  }
+  editOrder(data:editOrder){
+      return this.httpClient.put(`${baseUrl}/users/order`,data)
+  }
+  DeleteOrder(id:string){
+      return this.httpClient.delete(`${baseUrl}/users/order`,{
+        params:params.append('id',id)
+      })
   }
 }

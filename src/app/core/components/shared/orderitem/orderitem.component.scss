@@ -1,0 +1,14 @@
+.form-groups-wrapper{
+  display: flex;
+  gap: 60px;
+  margin-bottom: 30px;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+textarea{
+  padding: 10px;
+  margin-bottom: 20px;
+}

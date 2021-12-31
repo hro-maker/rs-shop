@@ -1,3 +1,10 @@
+export interface details {
+  "name": string,
+  "address": string,
+  "phone": string,
+  "timeToDeliver": string,
+  "comment": string
+}
 export interface Iuser{
   "firstName": string,
   "lastName": string,
@@ -11,13 +18,7 @@ export interface Iuser{
           "amount": number
         }
       ],
-      "details": {
-        "name": string,
-        "address": string,
-        "phone": string,
-        "timeToDeliver": string,
-        "comment": string
-      },
+      "details": details,
       "id": string
     }
   ]
