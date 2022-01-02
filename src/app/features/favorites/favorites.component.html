@@ -4,11 +4,7 @@
 
       <div class="item">
         <div class="item-image">
-          <p-image [preview]="true"  [src]="product.imageUrls[0]" alt="Image" height="100">
-            <ng-template pTemplate="indicator">
-                Indicator Content
-            </ng-template>
-        </p-image>
+          <img  (error)="errorHandler($event)" [src]="product.imageUrls[0]" alt="Image" height="100"/>
         </div>
         <div class="item-info">
                 <div class="item-name">

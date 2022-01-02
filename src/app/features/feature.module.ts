@@ -20,16 +20,14 @@ import { OrdersComponent } from './orders/orders.component';
 import { CartService } from '../services/cart.service';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { StepsModule } from 'primeng/steps';
-import {CalendarModule} from 'primeng/calendar';
-import {InputTextModule} from 'primeng/inputtext';
-import {InputMaskModule} from 'primeng/inputmask';
-import {InputTextareaModule} from 'primeng/inputtextarea';
+
 import { FavoritesComponent } from './favorites/favorites.component';
 import {CarouselModule} from 'primeng/carousel';
+import { SortPipe } from '../core/pipes/sort.pipe';
 @NgModule({
-  declarations: [MainComponent, ByCategoryIdComponent, ProductDetailsComponent, CartComponent, OrdersComponent, FavoritesComponent],
+  declarations: [SortPipe,MainComponent, ByCategoryIdComponent, ProductDetailsComponent, CartComponent, OrdersComponent, FavoritesComponent],
   imports: [
-    FormsModule,
+  FormsModule,
     HttpClientModule,
     CommonModule,
     SharedModule,
@@ -43,9 +41,9 @@ import {CarouselModule} from 'primeng/carousel';
     AuthModule,
     InputNumberModule,
     StepsModule,
-    CarouselModule
+    CarouselModule,
   ],
   providers:[AuthService,CartService],
-  exports: [FavoritesComponent,CartComponent, OrdersComponent,MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],
+  exports: [SortPipe,FavoritesComponent,CartComponent, OrdersComponent,MainComponent, ByCategoryIdComponent, ProductDetailsComponent,AuthModule],
 })
 export class FeatureModule {}

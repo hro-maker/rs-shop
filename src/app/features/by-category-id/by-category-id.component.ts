@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Igood } from 'src/app/core/interfaces/goods';
+import { sortField } from 'src/app/core/pipes/sort.pipe';
 import { GoodServise } from '../../services/goods.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class ByCategoryIdComponent implements OnInit, AfterViewInit {
   @ViewChild('intercept', { static: true }) intercept!: ElementRef;
   goods: Igood[] = [];
   historyArr:string[]=[]
+  sortField:sortField | ''=''
   constructor(
     private activeRouter: ActivatedRoute,
     private goodServise: GoodServise,
@@ -36,6 +38,7 @@ export class ByCategoryIdComponent implements OnInit, AfterViewInit {
         !this.goodServise.bycategoryid.isFinished
       ) {
         this.fetchGoods();
+        this.sortField=''
       }
     };
     const observer = new IntersectionObserver(callback);

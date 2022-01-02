@@ -8,9 +8,14 @@
     {{subid}}>
   </a>
 </div>
+<select class="by-id-select" [(ngModel)]="sortField" name="select" id="select">
+  <option selected  value=""  label="sort by"></option>
+  <option value="price" label="price"></option>
+  <option value="rating" label="rating"></option>
+</select>
 <div class="wrapper">
   <app-product
-*ngFor="let product of goods"
+*ngFor="let product of goods | sort:sortField"
 [product]="product"
 >
 </app-product>

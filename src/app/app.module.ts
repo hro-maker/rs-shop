@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import {TooltipModule} from 'primeng/tooltip';
+import { SortPipe } from './core/pipes/sort.pipe';
 @NgModule({
   declarations: [AppComponent],
   imports: [

@@ -28,3 +28,13 @@ h6{
 h1{
   font-size: 30px;
 }
+
+.wrapperr{
+  display: grid !important;
+  width: 100vw;
+  grid-template-columns: repeat(3,1fr)!important;
+  grid-template-rows: 500px 500px;
+}
+.select{
+  margin:20px;
+}

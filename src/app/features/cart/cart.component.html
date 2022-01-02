@@ -2,15 +2,11 @@
   <ng-container *ngIf="products.length; else elseTemplate">
     <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
     <div class="cart-elements" *ngIf="activeIndex === 1">
-      <div *ngFor="let product of products">
+      <div *ngFor="let product of products  | sort:'price'">
 
         <div class="item">
           <div class="item-image">
-            <p-image [preview]="true" (error)="errorHandler($event)" [src]="product.imageUrls[0]" alt="Image" height="100">
-              <ng-template pTemplate="indicator">
-                  Indicator Content
-              </ng-template>
-          </p-image>
+            <img  (error)="errorHandler($event)" [src]="product.imageUrls[0]" alt="Image" height="100"/>
           </div>
           <div class="item-info">
                   <div class="item-name">

@@ -30,7 +30,9 @@ export class FavoritesComponent implements OnInit {
       }
  })
   }
-
+  errorHandler(event:any) {
+    event.target.src = "https://cdn.browshot.com/static/images/not-found.png";
+ }
   addFavorite(id:string){
     if(this.authService.hasToken()){
         this.productService.deleteFavorites(id).subscribe(_=>{

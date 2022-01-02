@@ -12,7 +12,7 @@ import { Igood } from '../../core/interfaces/goods';
 })
 export class MainComponent implements OnInit {
   products:Igood[] = []
-  playInterval=5000
+  playInterval=3000
   constructor(
     private cartService: CartService,
     private authService:AuthService,
@@ -22,16 +22,19 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
       this.productService.getAllProducts().subscribe(data=>{
-        console.log(data)
         Object.values(data).forEach(arrs=>{
              this.products=this.products
              .concat(...Object.values(arrs))
-             .sort((a,b)=>  b.rating - a.rating).slice(0,20)
+             .sort((a,b)=>  b.rating - a.rating).slice(0,12)
         })
-
       })
   }
   onchanege(a:any){
+
       this.playInterval=+a.target.value
+      console.log(this.playInterval)
   }
+  errorHandler(event:any) {
+    event.target.src = "https://cdn.browshot.com/static/images/not-found.png";
+ }
 }

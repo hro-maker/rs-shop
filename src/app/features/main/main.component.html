@@ -1,25 +1,22 @@
-time <select (change)="onchanege($event)" name="interval" id="interval">
-  <option value="500" label="0.5 second"></option>
-  <option value="1000" label="1 second"></option>
-  <option value="2000" label="2 seconds"></option>
-  <option value="3000" selected label="3 seconds"></option>
-  <option value="4000" label="4 seconds"></option>
-</select>
+<div class="select">
+  time <select (change)="onchanege($event)" name="interval" id="interval">
+    <option value="500" label="0.5 second"></option>
+    <option value="1000" label="1 second"></option>
+    <option value="2000" label="2 seconds"></option>
+    <option value="3000" selected label="3 seconds"></option>
+    <option value="4000" label="4 seconds"></option>
+  </select>
+</div>
 <p-carousel
 [autoplayInterval]="playInterval"
 [value]="products" [numVisible]="1" [numScroll]="1" [circular]="false" >
-  <ng-template pTemplate="header">
-      <h5>products</h5>
-  </ng-template>
+
   <ng-template let-product pTemplate="item">
       <div class="product-item">
           <div class="product-item-content">
               <div class="image-container p-mb-3">
-                <p-image [src]="product.imageUrls[0]" alt="Image"  height="350">
-                  <ng-template pTemplate="indicator">
-                      Indicator Content
-                  </ng-template>
-              </p-image>
+                <img  (error)="errorHandler($event)" [src]="product.imageUrls[0]" alt="Image"  height="350"/>
+
               </div>
               <div class="other-information">
                  <div>
@@ -33,4 +30,27 @@ time <select (change)="onchanege($event)" name="interval" id="interval">
           </div>
       </div>
   </ng-template>
+</p-carousel>
+<p-carousel class="p-car" [value]="products" [numVisible]="6" [numScroll]="6" [circular]="false" >
+  <ng-template pTemplate="header">
+      <h5 class="select">popular Products</h5>
+  </ng-template>
+    <ng-template  let-product pTemplate="item">
+      <div class="product-item">
+          <div class="product-item-content">
+              <div class="p-mb-3">
+                  <img (error)="errorHandler($event)" [src]="product.imageUrls[0]" [alt]="product.name" class="product-image" />
+              </div>
+              <div class="other-information">
+                <a [routerLink]="['/product/'+product.id]" class="p-mb-1">{{product.name}}</a>
+                  <h6 class="p-mt-0 p-mb-3">in Stock: {{product.availableAmount}}</h6>
+
+                  <div class="car-buttons p-mt-5">
+                        {{product.price | currency:"USD"}}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+
 </p-carousel>
