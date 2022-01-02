@@ -11,7 +11,7 @@ import { RegisterComponent } from './features/auth/components/register/register.
 
 import { CartComponent } from './features/cart/cart.component';
 import { OrdersComponent } from './features/orders/orders.component';
-import { AuthGuard } from './core/helpers/auth.guard';
+import { AuthGuard } from './core/guards/auth.guard';
 import { FavoritesComponent } from './features/favorites/favorites.component';
 
 const routes: Routes = [

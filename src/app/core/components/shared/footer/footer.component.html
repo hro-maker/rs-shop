@@ -1,0 +1,10 @@
+<div class="footer">
+    <ul class="footer-wrapper">
+      <li *ngFor="let link of arr">
+        <fa-icon class="btn" [class]="link.class" [icon]="link.icon"></fa-icon>
+        <a target="_blank"  [href]="link.href">
+                  {{link.content}}
+        </a>
+      </li>
+    </ul>
+</div>

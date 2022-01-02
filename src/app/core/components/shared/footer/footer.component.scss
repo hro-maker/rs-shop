@@ -1,0 +1,17 @@
+.footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.footer-wrapper{
+  display: flex;
+  gap: 40px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 20px;
+}
+.btn{
+  color: orange;
+  margin-right: 20px;
+}

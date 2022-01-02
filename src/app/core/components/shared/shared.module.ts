@@ -22,6 +22,7 @@ import { AccountButtonsComponent } from './header/account-buttons/account-button
 import { OrderitemComponent } from './orderitem/orderitem.component';
 import { CalendarModule } from 'primeng/calendar';
 import { InputMaskModule } from 'primeng/inputmask';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { InputMaskModule } from 'primeng/inputmask';
     ProductComponent,
     ImageModalComponent,
     AccountButtonsComponent,
-    OrderitemComponent
+    OrderitemComponent,
+    FooterComponent
   ],
   exports: [
     HeaderComponent,
@@ -42,7 +44,8 @@ import { InputMaskModule } from 'primeng/inputmask';
     CategoriesComponent,
     ProductComponent,
     ImageModalComponent,
-    OrderitemComponent
+    OrderitemComponent,
+    FooterComponent
   ],
   imports: [
   CommonModule,

@@ -13,7 +13,7 @@ import { CategoriesModule } from './features/categories/categories.module';
 import { FeatureModule } from './features/feature.module';
 import { HttpIntercept } from './core/helpers/token.interceptor';
 import { AuthService } from './services/auth.service';
-import { AuthGuard } from './core/helpers/auth.guard';
+import { AuthGuard } from './core/guards/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
